@@ -359,64 +359,15 @@ DimPlot(
   split.by = "res0.1_named"
 )
 
-# even increasing the resolution, still can not divide utricle
-## ----------------------------------------------------------------------------------------------------------------
+# Increasing the resolution, will not sub-divide the utricle cells in the integrated space
 merged_obj <- FindClusters(merged_obj, resolution = 1.0, cluster.name = "1.0") 
 DimPlot(merged_obj, reduction = "umap.cca", label = TRUE)
-
-
-## ----------------------------------------------------------------------------------------------------------------
 Idents(merged_obj) <- merged_obj$res0.1_named
-
-
-## ----------------------------------------------------------------------------------------------------------------
-
-#umap_data <- Embeddings(merged_obj, reduction = "umap.cca")
-#meta_data <- merged_obj@meta.data
-
-
-#meta_data$umapcca_1 <- umap_data[, 1]
-#meta_data$umapcca_2 <- umap_data[, 2]
-
-
-#meta_data$new_label <- as.character(meta_data$res0.1_named)
-
-
-#for (main_type in c("type1", "type2", "type3", "type4")) {
-
-  #main_type_cells <- rownames(meta_data[meta_data$res0.1_named == main_type, ])
-  
- 
-  #main_type_range_x <- range(meta_data[main_type_cells, "umapcca_1"])
-  #main_type_range_y <- range(meta_data[main_type_cells, "umapcca_2"])
-  
- 
-  #utricle_in_main_type <- rownames(meta_data[
-    #meta_data$cell_type == "Utricle" &
-    #meta_data$umapcca_1 >= main_type_range_x[1] &
-    #meta_data$umapcca_1 <= main_type_range_x[2] &
-    #meta_data$umapcca_2 >= main_type_range_y[1] &
-    #meta_data$umapcca_2 <= main_type_range_y[2], 
-  #])
-  
-  #meta_data[utricle_in_main_type, "new_label"] <- paste0(main_type, "_with_utricle")
-#}
-
-#merged_obj@meta.data <- meta_data
-
-#Idents(merged_obj) <- meta_data$new_label
-
-#table(Idents(merged_obj))
-
-## ----------------------------------------------------------------------------------------------------------------
 merged_obj[[]]
-
-## ----------------------------------------------------------------------------------------------------------------
 DimPlot(merged_obj, reduction = "umap.cca", group.by = "new_label", label = TRUE) 
 
 
-# iterate through all Utricle cells and assign them to the closest main type
-## ----------------------------------------------------------------------------------------------------------------
+# iterate through all Utricle cells and assign them to the closest main cochlear cell type
 # Extract UMAP coordinates and meta.data
 umap_data <- Embeddings(merged_obj, reduction = "umap.cca")
 meta_data <- merged_obj@meta.data
@@ -438,7 +389,7 @@ type_centers <- lapply(c("type1", "type2", "type3", "type4"), function(type) {
 })
 names(type_centers) <- c("type1", "type2", "type3", "type4")
 
-# Iterate through all Utricle cells and assign them to the closest main type
+# Iterate through all Utricle cells and assign them to the closest main cochlear cell type
 utricle_cells <- rownames(meta_data[meta_data$res0.1_named == "Utricle", ])
 for (utricle_cell in utricle_cells) {
   # Get the UMAP coordinates of the current Utricle cell
@@ -465,16 +416,10 @@ Idents(merged_obj) <- meta_data$new_label
 # Check the updated label distribution
 table(Idents(merged_obj))
 
-
-## ----------------------------------------------------------------------------------------------------------------
 DimPlot(merged_obj, reduction = "umap.cca", group.by = "new_label", label = TRUE) 
-
-
-## ----------------------------------------------------------------------------------------------------------------
 DimPlot(merged_obj, reduction = "umap.cca", group.by = "new_label", split.by = "new_label") 
 
 # calculate percentage: Utricle / (Utricle + Type)
-## ----------------------------------------------------------------------------------------------------------------
 # Calculate the total number of cells in each cluster
 label_counts <- table(Idents(merged_obj))
 
@@ -508,7 +453,6 @@ print(utricle_summary)
 ## ----------------------------------------------------------------------------------------------------------------
 merged_obj[[]]
 
-## ----------------------------------------------------------------------------------------------------------------
 # Check for NA values in cluster_labels
 sum(is.na(meta_data$cluster_labels))
 
@@ -520,7 +464,6 @@ sum(is.na(meta_data$cluster_labels))
 
 # Update the Seurat object if necessary
 merged_obj@meta.data <- meta_data
-
 
 ## ----------------------------------------------------------------------------------------------------------------
 DimPlot(merged_obj, reduction = "umap.cca", group.by = "cluster_labels", label = TRUE) 
