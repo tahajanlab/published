@@ -1,24 +1,12 @@
-# Project Title
+# Epithelial-Mesenchymal Wnt Crosstalk Directs Planar Cell Polarity in the Developing Cochlea
 
-One-sentence description of what this project does and why it matters.
+Authors: Ippei Kishimoto, Abel P. David, Kevin Rose, Balasubramanian Narasimhan, Bradley Efron, Sara E. Billings, Erin L. Su, Wuxing Dong, Taha A. Jan, Ronna Hertzano, Alan G. Cheng
 
-> Example: A reproducible pipeline for analyzing alternative splicing in vestibular schwannoma using single-cell and long-read RNA-seq.
+Github Corresponding Author: Ippei Kishimoto
 
----
+Date Updated: 1/16/2026
 
-## 🚀 Overview
+## 📁 Analyses 
 
-Briefly explain:
-- The problem you’re solving
-- What this repository contains
-- Who this is for (researchers, clinicians, developers, etc.)
-
-**Key features**
-- Feature 1
-- Feature 2
-- Feature 3
-
----
-
-## 📁 Repository Structure
-
+- `polar_plots_circular_stats` Python code for producing polar coordinate plots and calculation of circular statistics
+- `scrnaseq_cellchat` R code using Seurat v5.3.0 and CellChat v2.1.2 to analyze epithelial-mesenchymal crosstalk
