@@ -1,6 +1,6 @@
 # Epithelial-Mesenchymal Wnt Crosstalk Directs Planar Cell Polarity in the Developing Cochlea
 
-Authors: Ippei Kishimoto, Abel P. David, Kevin Rose, Balasubramanian Narasimhan, Bradley Efron, Sara E. Billings, Erin L. Su, Wuxing Dong, Taha A. Jan, Ronna Hertzano, Alan G. Cheng
+Authors: Ippei Kishimoto, Abel P. David, Kevin P. Rose, Balasubramanian Narasimhan, Bradley Efron, Sara E. Billings, Erin L. Su, Wuxing Dong, Taha A. Jan, Ronna Hertzano, Alan G. Cheng
 
 Github Corresponding Author: Ippei Kishimoto
 
