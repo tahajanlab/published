@@ -2,9 +2,9 @@
 
 Authors: Ippei Kishimoto, Abel P. David, Kevin P. Rose, Balasubramanian Narasimhan, Bradley Efron, Sara E. Billings, Erin L. Su, Wuxing Dong, Taha A. Jan, Ronna Hertzano, Alan G. Cheng
 
-Github Corresponding Author: Ippei Kishimoto
+Github Corresponding Authors: Abel P. David and Taha A. Jan
 
-Date Updated: 1/16/2026
+Date Updated: 8/3/2026
 
 ## 📁 Analyses 
 
